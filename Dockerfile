@@ -6,6 +6,7 @@ WORKDIR /build
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o lunchbot .
 
+
 FROM scratch
 USER 10000
 COPY --from=builder /build/lunchbot /app/
