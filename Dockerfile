@@ -8,7 +8,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflag
 
 
 FROM scratch
-USER 10000
 COPY --from=builder /build/lunchbot /app/
 WORKDIR /app
 CMD ["./lunchbot"]
